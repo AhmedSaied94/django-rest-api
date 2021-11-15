@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'entertainment',
-    'rest_framework'
+    'rest_framework',
+    'django_extensions',
+    'account.apps.AccountConfig',
+    'rest_framework.authtoken',
+
 ]
 
 MIDDLEWARE = [
@@ -128,6 +132,13 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/saied/djangoRestApi/media_root'
+
+AUTH_USER_MODEL = 'account.UserProfile'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':
+    ['rest_framework.authentication.TokenAuthentication'],
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
